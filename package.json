@@ -1,0 +1,23 @@
+{
+  "name": "be-prepared",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weka2015-Projects/be-prepared.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weka2015-Projects/be-prepared/issues"
+  },
+  "homepage": "https://github.com/Weka2015-Projects/be-prepared#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
