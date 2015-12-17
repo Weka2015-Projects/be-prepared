@@ -1,6 +1,7 @@
 'use strict'
 const CronJob = require('cron').CronJob
 const request = require('superagent')
+const postTweet = require('./twitter')
 
 const today = new Date()
 const currentDate = today.getUTCFullYear() + "-" + (today.getUTCMonth() + 1) + "-" + (today.getUTCDate() - 1)
