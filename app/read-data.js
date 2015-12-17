@@ -1,6 +1,7 @@
 'use strict'
 
 const request = require('superagent')
+const postTweet = require('./twitter')
 
 request
   .get('http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2015-12-16')
@@ -16,13 +17,15 @@ request
       })
     }
     let time = []
-
-    time.push(String(new Date(array[0].time)).split(' ')[4] + ' ' +
-               String(new Date(array[0].time)).split(' ')[5])
-    let string = `M${array[0].mag} quake ${array[0].place} @ ${time[0]}. More info: ${array[0].url} `
-    
+    let tweets = []
+    for (var j = 0; j < array.length; j++) {
+      time.push(String(new Date(array[j].time)).split(' ')[4] + ' ' +
+               String(new Date(array[j].time)).split(' ')[5])
+      tweets.push(`M${array[j].mag} quake ${array[j].place} @ ${time[j]}. More info: ${array[j].url}`)
+      console.log(tweets[j])
+      // postTweet(tweets[j])
+    }
   })
-
 
 // 10 minutes interval between calling website.
 // (set parameter within start time)

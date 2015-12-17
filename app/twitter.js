@@ -19,8 +19,8 @@ const postTweet = (tweettext) => {
       console.log(error)
       return tweet
     } else {
-      console.log(tweet)
-      return tweet
+      console.log(tweet.text)
+      return tweet.text
     }
   })
   twitter.getAsync('statuses/user_timeline', {screen_name: 'avianesc'})
@@ -29,7 +29,6 @@ const postTweet = (tweettext) => {
       return status.text
     }
     let tweets = R.map(getText, twitterResponse)
-    console.log(tweets)
   })
 }
 
