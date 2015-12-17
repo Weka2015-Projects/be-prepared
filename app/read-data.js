@@ -15,7 +15,12 @@ request
         coordinates: (res.body.features[i].geometry.coordinates)
       })
     }
-    console.log(array)
+    let time = []
+
+    time.push(String(new Date(array[0].time)).split(' ')[4] + ' ' +
+               String(new Date(array[0].time)).split(' ')[5])
+    let string = `M${array[0].mag} quake ${array[0].place} @ ${time[0]}. More info: ${array[0].url} `
+    
   })
 
 
