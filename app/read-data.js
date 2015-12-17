@@ -16,7 +16,7 @@ new CronJob('*/10 * * * *', function() {
      let earthquakeTime = res.body.features[i].properties.time /1000
      let timeDiff = currentTime - earthquakeTime
 
-     if ( res.body.features[i].properties.mag > 0 && timeDiff < 600 ) {
+     if ( res.body.features[i].properties.mag > 4 && timeDiff < 600 ) {
       earthquakeArray.push({
         time: (res.body.features[i].properties.time),
         url: (res.body.features[i].properties.url),
