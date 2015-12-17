@@ -1,7 +1,6 @@
 'use strict'
 const dotenv = require('dotenv')
 const Promise = require('bluebird')
-const R = require('ramda')
 const Twitter = require('twitter')
 
 dotenv.load()
@@ -22,13 +21,6 @@ const postTweet = (tweettext) => {
       console.log(tweet.text)
       return tweet.text
     }
-  })
-  twitter.getAsync('statuses/user_timeline', {screen_name: 'avianesc'})
-  .then(twitterResponse => {
-    const getText = status => {
-      return status.text
-    }
-    let tweets = R.map(getText, twitterResponse)
   })
 }
 
