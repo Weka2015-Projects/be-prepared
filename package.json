@@ -23,5 +23,9 @@
   },
   "directories": {
     "test": "test"
+  },
+  "dependencies": {
+    "superagent": "^1.6.1"
+
   }
 }
