@@ -1,13 +1,8 @@
 'use strict'
-// const colors = require('colors')
 const dotenv = require('dotenv')
-
 const Promise = require('bluebird')
 const R = require('ramda')
 const Twitter = require('twitter')
-const path = {path: '../'}
-// load environment variables
-dotenv.config(path)
 dotenv.load()
 
 const client = new Twitter({
@@ -28,7 +23,12 @@ twitterResponse
   let tweets = R.map(getText, twitterResponse)
   console.log(tweets)
 })
-.then(client.post('statuses/update', {status: 'hm'}, (error, tweet, response) => {
-  if (error) console.log(error)
-  else console.log(tweet)  // Tweet body.
+.then(client.post('statuses/update', {status: 'hello'}, (error, tweet, response) => {
+  if (error) {
+    console.log(error)
+    return tweet
+  } else {
+    console.log(tweet)
+    return tweet
+  }
 }))
