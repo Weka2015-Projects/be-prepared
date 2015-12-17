@@ -18,6 +18,10 @@
   "homepage": "https://github.com/Weka2015-Projects/be-prepared#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "cron": "^1.1.0",
     "mocha": "^2.3.4"
+  },
+  "directories": {
+    "test": "test"
   }
 }
