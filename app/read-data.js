@@ -22,7 +22,6 @@ request
       time.push(String(new Date(array[j].time)).split(' ')[4] + ' ' +
                String(new Date(array[j].time)).split(' ')[5])
       tweets.push(`M${array[j].mag} quake ${array[j].place} @ ${time[j]}. More info: ${array[j].url}`)
-      console.log(tweets[j])
       // postTweet(tweets[j])
     }
   })
