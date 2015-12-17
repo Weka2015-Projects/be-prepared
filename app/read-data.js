@@ -5,17 +5,19 @@ const request = require('superagent')
 request
   .get('http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2015-12-16')
   .end((err, res) => {
-    var array = []
+    var earthquakeArray = []
     for ( var i = 0; i<res.body.features.length; i++) {
-      array.push({
+      if ( res.body.features[i].properties.mag > 4) {
+        earthquakeArray.push({
         time: (res.body.features[i].properties.time),
         url: (res.body.features[i].properties.url),
         mag: (res.body.features[i].properties.mag),
         place: (res.body.features[i].properties.place),
         coordinates: (res.body.features[i].geometry.coordinates)
       })
+      }
     }
-    console.log(array)
+    console.log(earthquakeArray)
   })
 
 
