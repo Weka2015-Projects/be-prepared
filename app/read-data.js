@@ -1,14 +1,7 @@
 'use strict'
-const CronJob = require('cron').CronJob
-const request = require('superagent')
 const postTweet = require('./twitter')
-const today = new Date()
-const currentDate = today.getUTCFullYear() + "-" + (today.getUTCMonth() + 1) + "-" + (today.getUTCDate() - 1)
 
-new CronJob('* */10 * * * *', function() {
-  request
-  .get('http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=' + currentDate )
-  .end((err, res) => {
+let callback = (err, res) => {
     var earthquakeArray = []
     const currentTime =  Math.floor(Date.now() / 1000)
     for (var i = 0; i<res.body.features.length; i++) {
@@ -33,5 +26,6 @@ new CronJob('* */10 * * * *', function() {
       }
     }
   }
-})
-}, null, true, 'America/Los_Angeles')
+}
+
+module.exports = callback
